@@ -19,7 +19,8 @@ conda install -c plotly plotly
 
 ## Site Rendering
 
-The test site is rendered on GitHub pages.
+The test site is rendered on
+[GitHub pages](https://camryn-e.github.io/QueersInCrisis/index.html).
 
 The base website code was built using the source from the current
 [oSTEM Crisis Hotlines](https://ostem.org/page/crisis-hotlines).
@@ -27,6 +28,9 @@ The base website code was built using the source from the current
 The original contrast errors flagged by the [WAVE](https://wave.webaim.org/)
 extension were fixed in a `<style>` block based on the values in the referenced
 `WhiteSkyBlue`[stylesheet](https://globalassets.azureedge.net/templates/Portal-B4/Impression/S4-WhiteSkyBlue.min.css?_=637401814753747732).
+The biggest adjustments were resetting colors from `#019FCB` to `#0000F5`.
+The adjusted elements were only those on the crisis page, so there are likely
+more elements to fix from the underlying Bootstrap for the entire oSTEM site.
 
 The `navbar` links were modified from relative links to absolute links for the
 demo.
