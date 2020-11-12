@@ -261,9 +261,12 @@ a:hover, a:focus {
 }
 
 /* Join oSTEM Button hover (inverse) */
-.navbar .navbar-nav>li>.menu-item-primary:hover,.navbar .navbar-nav>li>.menu-item-primary:focus,
-.navbar .navbar-nav>li>.menu-item-primary.focus,.navbar .navbar-nav>li>.menu-item-primary:active,
-.navbar .navbar-nav>li>.menu-item-primary.active,.open>.dropdown-toggle.navbar .navbar-nav>li>.menu-item-primary{
+.navbar .navbar-nav>li>.menu-item-primary:hover,
+.navbar .navbar-nav>li>.menu-item-primary:focus,
+.navbar .navbar-nav>li>.menu-item-primary.focus,
+.navbar .navbar-nav>li>.menu-item-primary:active,
+.navbar .navbar-nav>li>.menu-item-primary.active,
+.open>.dropdown-toggle.navbar .navbar-nav>li>.menu-item-primary{
     color: #0000F5;
     background-color: transparent;
     border-color: #0000F5;
@@ -279,9 +282,12 @@ a:hover, a:focus {
 }
 
 /* Donate Button hover (inverse) */
-.navbar .navbar-nav>li>.menu-item-secondary:hover,.navbar .navbar-nav>li>.menu-item-secondary:focus,
-.navbar .navbar-nav>li>.menu-item-secondary.focus,.navbar .navbar-nav>li>.menu-item-secondary:active,
-.navbar .navbar-nav>li>.menu-item-secondary.active,.open>.dropdown-toggle.navbar .navbar-nav>li>.menu-item-secondary{
+.navbar .navbar-nav>li>.menu-item-secondary:hover,
+.navbar .navbar-nav>li>.menu-item-secondary:focus,
+.navbar .navbar-nav>li>.menu-item-secondary.focus,
+.navbar .navbar-nav>li>.menu-item-secondary:active,
+.navbar .navbar-nav>li>.menu-item-secondary.active,
+.open>.dropdown-toggle.navbar .navbar-nav>li>.menu-item-secondary{
     color: #fff;
     background-color: #0000F5;
     border-color: #0000F5;
@@ -298,6 +304,11 @@ a:hover, a:focus {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #0000F5;
+}
+
+/* Remove added underline from dropdown navbar links */
+.navbar-nav .dropdown-menu>li a, .navbar-nav .dropdown-menu>li span {
+    text-decoration: none;
 }
 
 /* Remove typical footer links */
