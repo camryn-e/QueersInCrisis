@@ -246,9 +246,10 @@ def symbol_key(df):
      ]
 
     ## Key of categories replaced with Font Awesome
+    ## DO NOT include escapes for brackets -- \[ -- for Python here!
     sym_key = '''
     <ul>
-      <li>Accessible physical location \[wheelchair and mobility aid accessible\]: APL </li>
+      <li>Accessible physical location [wheelchair and mobility aid accessible]: APL </li>
       <li>Age specific limitations: Age</li>
       <li>Firm costs: $</li>
       <li>Free: Free</li>
@@ -323,9 +324,10 @@ def awesomeify(df):
      ]
 
     ## Key of categories replaced with Font Awesome
+    ## DO NOT include escapes for brackets -- \[ -- for Python here!
     fa_key = '''
     <ul>
-      <li>Accessible physical location \[wheelchair and mobility aid accessible\]: <i class="fab fa-accessible-icon"></i> </li>
+      <li>Accessible physical location [wheelchair and mobility aid accessible]: <i class="fab fa-accessible-icon"></i> </li>
       <li>Age specific limitations: <i class="fas fa-child"></i></li>
       <li>Firm costs: <i class="fas fa-comment-dollar"></i></li>
       <li>Free: <i class="fas fa-money-bill-wave"></i></li>
