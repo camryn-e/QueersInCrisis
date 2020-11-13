@@ -363,6 +363,23 @@ a:hover, a:focus {
   background: #0000F5;
 }
 
+/* Change Scroll Up button color */
+.go-to-top:hover .go-to-top-block,
+.go-to-top:focus .go-to-top-block{
+    background-color:rgba(0, 0, 245, 0.6);
+}
+.go-to-top:active .go-to-top-block{
+    background-color:rgba(0, 0, 245, 0.8);
+}
+.go-to-top .go-to-top-block{
+    background-color:rgba(0, 0, 245, 0.3);
+}
+
+/* Change Code contrast */
+code {
+    color: #8A1935;
+}
+
 </style>
 <!-- End EML -->
 
@@ -486,11 +503,19 @@ canBlock = true;
 <!-- End "Header" content + page set-up info -->
 <!-- Start EML -->
 
+<h2>
+Example Plotly Integration Using iFrame
+</h2>
+
 <p>
 This is a test of the  Python-based plotly rendering.
 <a href="https://ostem.org/page/crisis-hotlines" target="_blank">Follow this to the Original Crisis Page</a>,
 since that's what you'll want to compare this against.
 </p>
+
+<h2>
+Data.Tables Solution Using iFrame
+</h2>
 
 <!-- Create responsive embedding for the data table -->
 <div class="container">
@@ -514,6 +539,21 @@ This paragraph tests that all the text after the iframe renders as expected.
 
 <p>
 Open the above table <a href="https://camryn-e.github.io/QueersInCrisis/crisis-resources-datatable.html" target="_blank">in a new tab</a>.
+</p>
+
+<h2>
+Published Google Sheet: A less elegant, but ready-made solution
+</h2>
+
+<center>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQjnXdHfz66izc7znT2YhjL068ZsLpGxQvG0QJcaBjOD2-HWPBRfo-rY4pqLowRfVaBZI1bjT5ROvoo/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="400px"></iframe>
+</center>
+
+<p>
+Above this text is a Google Sheet that has been published to the web.
+More information on how to publish Google Sheets is available in Google's
+<a href="https://support.google.com/docs/answer/183965" target="_blank">Doc Editor Help</a>.
+Searching via <code>Cntrl+F</code> works, but there is no search bar capability.
 </p>
 
 </main>
