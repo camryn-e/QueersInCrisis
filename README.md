@@ -5,7 +5,8 @@ Team: (Our names go here, probably)
 ## About
 
 This repository contains the product build for the Crisis Resources Page
-challenge at the 2020 oSTEM Hackathon.
+[challenge](https://www.notion.so/Crisis-Resources-Page-d47e22f151394101a45ce4e0608ccd4f)
+at the 2020 oSTEM Hackathon.
 Our product builds an interactive map of crisis resources from
 a CSV file.
 
@@ -36,6 +37,16 @@ HTML division.
   2. Generating an interative HTML DataTable from a public Google Sheet
   3. Generating an interative HTML DataTable from a public Google Sheet and replacing cell text with Font Awesome icons
 
+## `docs/from-current.html`
+
+This file contains the HTML for a working oSTEM test page.
+Any additions or modifications to the original crisis page's HTML are marked
+in comment blocks following this format:
+```
+<!-- EML: <Description of what is being done> -->
+<!-- EML: End <any parting words> -->
+```
+
 ## Site Rendering
 
 The test site is rendered on
@@ -56,7 +67,7 @@ demo.
 
 The iFrames can be tested with new HTML sources locally by replacing the GitHub paths to the local `file:///` path.
 
-In addition to adding iFrames for the map and DataTables solutions, a published version of the public Google Sheet 
+In addition to adding iFrames for the map and DataTables solutions, a published version of the public Google Sheet
 was also embedded.
 
 ## Additional Information on Web Accessibility

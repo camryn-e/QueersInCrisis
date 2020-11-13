@@ -13,7 +13,7 @@ worksheetName = '300334505'
 
 class Organization:
     """
-    This class cleans up the information found in a physical CSV file
+    This class cleans up the information found in a physical CSV file.
     """
     def __init__(self, name, contact, email, phone, address, website, state,
                  crisis, counseling, peer, health, addiction, homelessness,
@@ -60,6 +60,19 @@ class Organization:
             }
 
 def csv_approach(csv_file):
+    """
+    Reads and processes a CSV, giving them appropriate names.
+
+    Parameters
+    ----------
+    csv_file : str
+        The path to the input CSV file.
+
+    Returns
+    -------
+    df : pd.DataFrame
+        A pandas dataframe.
+    """
     orglist=[]
     with open(csv_file) as f:
         reader = csv.reader(f)
@@ -86,7 +99,7 @@ def read_from_sheets(googleSheetID, worksheetName):
 
     Returns
     -------
-    df
+    df : pd.DataFrame
         A pandas dataframe.
     """
 
@@ -110,6 +123,12 @@ def setup_HTML():
 
     {fa_key} : The font-awesome key (if there is one)
     {table} : the output of to_html
+
+    Returns
+    -------
+    html_string : string
+        A string of the relevant HTML elements needed to generate a standalone
+        DataTables that works in an iFrame.
     """
 
     html_string = '''
@@ -150,6 +169,16 @@ def update_colnames(df):
     """
     Replace the Spreadsheet column names with shorter names based on their
     known order.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        A pandas dataframe containing the spreadsheet data.
+
+    Returns
+    -------
+    df : pd.DataFrame
+        The cleaned pandas dataframe.
     """
 
     ## Get list of column names
@@ -178,12 +207,111 @@ def write_html(filename, html_string, df, fa_key=""):
          fa_key=fa_key))
         f.close()
 
+def symbol_key(df):
+    """
+    Replace the current form categories with shorter, normal symbols.
+
+    Replacements
+    ------------
+    Accessible physical location [wheelchair and mobility aid accessible]: APL
+    Age specific limitations: Age
+    Firm costs: $
+    Free: Free
+    LGBTQ Competent: LGBTQ
+    Member only: MO
+    No insurance required: NI
+    Other: ???
+    Remote/Online access: OTI
+    Sliding Scale: SS
+
+    Parameters
+    ----------
+    df: pd.DataFrame
+        A pandas dataframe containing the cleaned spreadsheet data.
+    Returns
+    -------
+    sym_key : str
+        A string with the HTML required for a key of the symbols that are
+        used instead of the original data.
+    df : pd.DataFrame
+        The cleaned pandas dataframe after string replacement.
+    """
+
+    ## Deal with categories
+    form_categories = [
+     'Accessible physical location [wheelchair and mobility aid accessible]', \
+     'Age specific limitations', 'Firm costs', 'Free', 'LGBTQ Competent', \
+     'Member only', 'No insurance required', 'Other', 'Remote/Online access', \
+     'Sliding Scale'
+     ]
+
+    ## Key of categories replaced with Font Awesome
+    sym_key = '''
+    <ul>
+      <li>Accessible physical location [wheelchair and mobility aid accessible]: APL </li>
+      <li>Age specific limitations: Age</li>
+      <li>Firm costs: $</li>
+      <li>Free: Free</li>
+      <li>LGBTQ Competent: LGBTQ</li>
+      <li>Member only: MO</li>
+      <li>No insurance required: NI</li>
+      <li>Other: ??? </li>
+      <li>Remote/Online access: OTI</li>
+      <li>Sliding Scale: SS</li>
+    </ul>
+     '''
+
+    ## Columns to replace values in
+    c2r = ['crisis', 'counseling', 'peer', 'health', 'addiction',
+     'homelessness', 'advocacy', 'medication', 'other']
+
+    for i in range(len(c2r)):
+        df[c2r[i]] = df[c2r[i]].replace('Accessible physical location \[wheelchair and mobility aid accessible\]', 'APL', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Age specific limitations', 'Age', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Firm costs', '$', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Free', 'Free', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('LGBTQ Competent', 'LGBTQ', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Member only', 'MO', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('No insurance required', 'NI', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Other', '???', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Remote/Online access', 'OTI', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Sliding Scale', 'SS', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace(',', '&nbsp;', regex=True)
+
+    ## Replace newlines with HTML breaks
+    df = df.replace({'\n': '<br>'}, regex=True)
+
+    return sym_key, df
 
 def awesomeify(df):
     """
     Add in font awesome capability if you so choose.
-    The following symbols were chosen to stand for certain things
 
+    Replacements
+    ------------
+    Accessible physical location [wheelchair and mobility aid accessible]: fab fa-accessible-icon
+    Age specific limitations: fas fa-child
+    Firm costs: fas fa-comment-dollar
+    Free: fas fa-money-bill-wave
+    LGBTQ Competent: fas fa-rainbow
+    Member only: fas fa-lock
+    No insurance required: fas fa-notes-medical
+    Other: far fa-plus-square
+    Remote/Online access: fas fa-globe
+    Sliding Scale: fas fa-balance-scale
+
+    Parameters
+    ----------
+    df: pd.DataFrame
+        A pandas dataframe containing the cleaned spreadsheet data.
+
+    Returns
+    -------
+    fa_key : str
+        A string with the HTML required for a key of the Font Awesome symbols
+        that are used instead of the original data.
+    df : pd.DataFrame
+        The cleaned pandas dataframe after string replacement.
     """
 
     ## Deal with categories
@@ -232,14 +360,6 @@ def awesomeify(df):
 
     return fa_key, df
 
-# ## Save df as an HTML table with customized style
-# ## "display" is a data.tables default with striped rows
-# ## you don't need table_id, but might be helpful for other iFrame approaches
-# with open(filename, 'w') as f:
-#     f.write(html_string.format(table=df.to_html(index=False, \
-#      classes='display', escape=False, table_id="CRtable", na_rep=''), fa_key=fa_key))
-#     f.close()
-
 ### Actual Run Code
 if __name__ == "__main__":
     ## Render the HTML string
@@ -256,7 +376,11 @@ if __name__ == "__main__":
     ## Write a copy after cleaning the column names
     write_html('docs/CRDT-sheets.html', html_string, gs_df)
 
+    ## Google sheets + Normal Symbols
+    sym_key, sym_df = symbol_key(gs_df)
+    write_html('docs/CRDT-sheets-NFA.html', html_string, sym_df, sym_key)
+
     ## Google sheets + Font Awesome
-    fa_key, gs_df = awesomeify(gs_df)
+    fa_key, fa_gs_df = awesomeify(gs_df)
     ## Write a copy after the Font Awesome substitutions
-    write_html('docs/CRDT-sheets-FA.html', html_string, gs_df, fa_key)
+    write_html('docs/CRDT-sheets-FA.html', html_string, fa_gs_df, fa_key)
