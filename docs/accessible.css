@@ -15,6 +15,11 @@ a:hover, a:focus {
     text-decoration: underline;
 }
 
+/* Make linked list items inherit formatting from link */
+li {
+    color:inherit;
+}
+
 /* Logout Button regular */
 .logout-link a:active, .logout-link a:link {
     color: #222;
