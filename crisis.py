@@ -379,10 +379,14 @@ if __name__ == "__main__":
     write_html('docs/CRDT-sheets.html', html_string, gs_df)
 
     ## Google sheets + Normal Symbols
-    sym_key, sym_df = symbol_key(gs_df)
-    write_html('docs/CRDT-sheets-NFA.html', html_string, sym_df, sym_key)
+    sym_gs_df = read_from_sheets(googleSheetID, worksheetName)
+    sym_gs_df = update_colnames(sym_gs_df)
+    sym_key, sym_gs_df = symbol_key(sym_gs_df)
+    write_html('docs/CRDT-sheets-NFA.html', html_string, sym_gs_df, sym_key)
 
     ## Google sheets + Font Awesome
+    fa_gs_df = read_from_sheets(googleSheetID, worksheetName)
+    fa_gs_df = update_colnames(fa_gs_df)
     fa_key, fa_gs_df = awesomeify(gs_df)
     ## Write a copy after the Font Awesome substitutions
     write_html('docs/CRDT-sheets-FA.html', html_string, fa_gs_df, fa_key)
