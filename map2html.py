@@ -32,3 +32,14 @@ fig.update_layout(
 ## Use a CDN instead of embedding the js into the HTML
 ## Source: https://plotly.com/python/interactive-html-export/
 fig.write_html(CR_inset_path, include_plotlyjs="cdn")
+
+## Add default language to the file by changing first line
+## Add title by modifying the second line with head tag
+HMTL_file = open(CR_inset_path, "r")
+list_of_lines = HMTL_file.readlines()
+list_of_lines[0] = '<html lang="en-us">\n'
+list_of_lines[1] = '<head><meta charset="utf-8" /><title>Resource Map</title></head>\n'
+
+HMTL_file = open(CR_inset_path, "w")
+HMTL_file.writelines(list_of_lines)
+HMTL_file.close()

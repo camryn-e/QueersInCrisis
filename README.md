@@ -27,10 +27,10 @@ conda install pandas
 pip install plotly
 pip install pandas
 ```
-## `plotly2html.py`
+## `map2html.py`
 
-`plotly2html.py` generates a test plotly figure and renders a standalone
-HTML division.
+`map2html.py` generates an example plotly figure and renders a standalone
+HTML page.
 
 ## `crisis.py`
 
