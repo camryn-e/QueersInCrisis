@@ -262,13 +262,13 @@ def symbol_key(df):
      '''
 
     ## Columns to replace values in
-    c2r = ['crisis', 'counseling', 'peer', 'health', 'addiction',
+    c2r = ['crisis', 'counseling', 'peer', 'health', 'addiction', \
      'homelessness', 'advocacy', 'medication', 'other']
 
     for i in range(len(c2r)):
         df[c2r[i]] = df[c2r[i]].replace('Accessible physical location \[wheelchair and mobility aid accessible\]', 'APL', regex=True)
         df[c2r[i]] = df[c2r[i]].replace('Age specific limitations', 'Age', regex=True)
-        df[c2r[i]] = df[c2r[i]].replace('Firm costs', '$', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Firm costs', '\$', regex=True)
         df[c2r[i]] = df[c2r[i]].replace('Free', 'Free', regex=True)
         df[c2r[i]] = df[c2r[i]].replace('LGBTQ Competent', 'LGBTQ', regex=True)
         df[c2r[i]] = df[c2r[i]].replace('Member only', 'MO', regex=True)
@@ -339,18 +339,18 @@ def awesomeify(df):
      '''
 
     ## Columns to replace values in
-    c2r = ['crisis', 'counseling', 'peer', 'health', 'addiction',
+    c2r = ['crisis', 'counseling', 'peer', 'health', 'addiction',  \
      'homelessness', 'advocacy', 'medication', 'other']
 
     for i in range(len(c2r)):
-        df[c2r[i]] = df[c2r[i]].replace('Accessible physical location \[wheelchair and mobility aid accessible\]', '<i  class="fab fa-accessible-icon" title="accessible physical location"></i>', regex=True)
-        df[c2r[i]] = df[c2r[i]].replace('Age specific limitations', '<i  class="fas fa-child" title="age specific limitations"></i>', regex=True)
-        df[c2r[i]] = df[c2r[i]].replace('Firm costs', '<i  class="fas fa-comment-dollar" title="firm costs"></i>', regex=True)
-        df[c2r[i]] = df[c2r[i]].replace('Free', '<i  class="fas fa-comment-dollar" title="free"></i>', regex=True)
-        df[c2r[i]] = df[c2r[i]].replace('LGBTQ Competent', '<i  class="fas fa-rainbow" title="LGBTQ competent"></i>', regex=True)
-        df[c2r[i]] = df[c2r[i]].replace('Member only', '<i  class="fas fa-lock" title="member"></i>', regex=True)
-        df[c2r[i]] = df[c2r[i]].replace('No insurance required', '<i  class="fas fa-notes-medical" title="no insurance required"></i>', regex=True)
-        df[c2r[i]] = df[c2r[i]].replace('Other', '<i  class="far fa-plus-square" title="other"></i>', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Accessible physical location [wheelchair and mobility aid accessible]', '<i class="fab fa-accessible-icon" title="accessible physical location"></i>', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Age specific limitations', '<i class="fas fa-child" title="age specific limitations"></i>', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Firm costs', '<i class="fas fa-comment-dollar" title="firm costs"></i>', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Free', '<i class="fas fa-comment-dollar" title="free"></i>', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('LGBTQ Competent', '<i class="fas fa-rainbow" title="LGBTQ competent"></i>', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Member only', '<i class="fas fa-lock" title="member"></i>', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('No insurance required', '<i class="fas fa-notes-medical" title="no insurance required"></i>', regex=True)
+        df[c2r[i]] = df[c2r[i]].replace('Other', '<i class="far fa-plus-square" title="other"></i>', regex=True)
         df[c2r[i]] = df[c2r[i]].replace('Remote/Online access', '<i  class="fas fa-globe" title="remote or online access"></i>', regex=True)
         df[c2r[i]] = df[c2r[i]].replace('Sliding Scale', '<i  class="fas fa-balance-scale" title="sliding scale"></i>', regex=True)
         df[c2r[i]] = df[c2r[i]].replace(',', '&nbsp;', regex=True)
