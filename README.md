@@ -10,6 +10,8 @@ at the 2020 oSTEM Hackathon.
 Our product builds an interactive map of crisis resources from
 a CSV file.
 
+You can access our presentation on [Google Slides](https://bit.ly/2020-oSTEM-Hack-QIC).
+
 ## Dependencies
 
 This code uses Python 3 and relies on the `plotly`, `pandas`, and `csv` dependencies.
