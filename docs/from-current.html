@@ -211,176 +211,8 @@ $('.input-group-addon').removeClass('focus');
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <!-- EML: End data.tables -->
 
-<!-- EML: Change hyperlink for accessibility at AAA level -->
-<!-- #019fcb becomes #264BBA -->
-<!-- For contrast, base oSTEM Footer is #e6e6e6, MN Footer is #eee -->
-<style>
-/* Fix unvisited link color */
-a:link {
-    color: #0000F5;
-    text-decoration: underline;
-}
-
-/* Underline on Hover */
-a:hover, a:focus {
-    color: #222;
-    text-decoration: underline;
-}
-
-/* Logout Button regular */
-.logout-link a:active, .logout-link a:link {
-    color: #222;
-    text-decoration: none;
-}
-
-/* Logout Button on hover */
-.logout-link a:hover, .logout-link a:focus {
-    color: #0000F5;
-    text-decoration: none;
-}
-
-/* Cookies Pop-Up */
-.cc-btn {
-    background-color: #0000F5;
-    border-color: #0000F5;
-}
-
-.cc-btn:hover {
-    color: #0000F5;
-    background-color: transparent;
-    border-color: #0000F5;
-}
-
-/* Underline and gray "Learn more" in compliance window on hover */
-.cc-window a:hover {
-    color: #222;
-    text-decoration: underline;
-}
-
-/* Join oSTEM Button */
-.navbar .navbar-nav>li>.menu-item-primary,
-.navbar .navbar-nav>li>.menu-item-primary:link {
-    color:#fff;
-    background-color: #0000F5;
-    border-color: #0000F5;
-}
-
-/* Join oSTEM Button hover (inverse) */
-.navbar .navbar-nav>li>.menu-item-primary:hover,
-.navbar .navbar-nav>li>.menu-item-primary:focus,
-.navbar .navbar-nav>li>.menu-item-primary.focus,
-.navbar .navbar-nav>li>.menu-item-primary:active,
-.navbar .navbar-nav>li>.menu-item-primary.active,
-.open>.dropdown-toggle.navbar .navbar-nav>li>.menu-item-primary{
-    color: #0000F5;
-    background-color: transparent;
-    border-color: #0000F5;
-}
-
-/* Donate Button */
-.navbar .navbar-nav>li>.menu-item-secondary,
-.navbar .navbar-nav>li>.menu-item-secondary:link {
-/*    background-color: #fff; */
-    color: #0000F5;
-    background-color: transparent;
-    border-color: #0000F5;
-}
-
-/* Donate Button hover (inverse) */
-.navbar .navbar-nav>li>.menu-item-secondary:hover,
-.navbar .navbar-nav>li>.menu-item-secondary:focus,
-.navbar .navbar-nav>li>.menu-item-secondary.focus,
-.navbar .navbar-nav>li>.menu-item-secondary:active,
-.navbar .navbar-nav>li>.menu-item-secondary.active,
-.open>.dropdown-toggle.navbar .navbar-nav>li>.menu-item-secondary{
-    color: #fff;
-    background-color: #0000F5;
-    border-color: #0000F5;
-}
-
-/* Fix navbar static color (don't underline before hover...) */
-.navbar-default .navbar-nav > li > a:active,
-.navbar-default .navbar-nav > li > a:link {
-    color: #222;
-    text-decoration: none;
-}
-
-/* Fix dropdown color */
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: #0000F5;
-}
-
-/* Remove added underline from dropdown navbar links */
-.navbar-nav .dropdown-menu>li a, .navbar-nav .dropdown-menu>li span {
-    text-decoration: none;
-}
-
-/* Remove typical footer links */
-.system-footer a:link, .system-footer a:active{
-    text-decoration: none;
-}
-
-.website-footer a:link, .website-footer a:active{
-    text-decoration: none;
-}
-
-/* Footer links on hover */
-.system-footer a:hover,.system-footer a:focus {
-    color: #424242;
-    text-decoration: underline;
-}
-
-/* Oof, fix-button-hover.css is basically just this... */
-.carousel-caption .btn-primary:hover {
-    background: #0000F5;
-    color: white;
-    border-color: #0000F5;
-}
-
-/* Set navbar hamburger border and bkgd color */
-.navbar-default .navbar-toggle {
-    border-color: #0000F5;
-    background-color: #0000F5;
-}
-
-/* Set hamburger lines on hover/active */
-.navbar-default .navbar-toggle:active,
-.navbar-default .navbar-toggle:focus,
-.navbar-default .navbar-toggle:hover .icon-bar{
-    background-color: #0000F5;
-    border-color: #0000F5;
-}
-
-/* Change selection (right click) text color */
-::-moz-selection { /* Code for Firefox */
-  color: white;
-  background: #0000F5;
-}
-
-::selection {
-  color: white;
-  background: #0000F5;
-}
-
-/* Change Scroll Up button color */
-.go-to-top:hover .go-to-top-block,
-.go-to-top:focus .go-to-top-block{
-    background-color:rgba(0, 0, 245, 0.6);
-}
-.go-to-top:active .go-to-top-block{
-    background-color:rgba(0, 0, 245, 0.8);
-}
-.go-to-top .go-to-top-block{
-    background-color:rgba(0, 0, 245, 0.3);
-}
-
-/* Change Code contrast */
-code {
-    color: #8A1935;
-}
-
-</style>
+<!-- EML: Fix the Bootstrap CSS for better web accessibility -->
+<link rel="stylesheet" href="accessible.css">
 <!-- End EML -->
 
 <nav class="navbar navbar-default" aria-label="page navigation">
@@ -513,40 +345,45 @@ This is a test of the  Python-based plotly rendering.
 since that's what you'll want to compare this against.
 </p>
 
-<h2>
-Data.Tables Solution Using iFrame
-</h2>
-
 <!-- Create responsive embedding for the data table -->
 <div class="container">
   <div class="embed-responsive embed-responsive-16by9">
     <!-- Local test: -->
-    <!-- <iframe title="Interactive Crisis Resource Map" class="embed-responsive-item" src="file:///Users/Owner/Documents/Activities/oSTEM/2020-Hackathon/QueersInCrisis/docs/crisis-resources-inset.html" aria-hidden="true"></iframe> -->
+    <!-- <iframe title="Interactive Crisis Resource Map" class="embed-responsive-item" src="file:///Users/Owner/Documents/Activities/oSTEM/2020-Hackathon/QueersInCrisis/docs/CR-plotly-test.html" aria-hidden="true"></iframe> -->
     <!-- Can't use Raw Github link because of iFrame HTTP weirdness -->
-    <iframe title="Interactive Crisis Resource Map" class="embed-responsive-item" src="https://camryn-e.github.io/QueersInCrisis/crisis-resources-inset.html" aria-hidden="true"></iframe>
+    <iframe title="Interactive Crisis Resource Map" class="embed-responsive-item" src="https://camryn-e.github.io/QueersInCrisis/CR-plotly-test.html" aria-hidden="true"></iframe>
   </div>
 </div>
 
 <p>
-This paragraph tests that all the text after the iframe renders as expected.
+Open the above plot <a href="https://camryn-e.github.io/QueersInCrisis/CR-plotly-test.html" target="_blank">in a new tab</a>.
 </p>
+
+<br>
+
+<h2>
+Data.Tables Solution Rendering a CSV in an iFrame
+</h2>
 
 <div class="container">
   <div class="embed-responsive embed-responsive-16by9">
-        <iframe title="Crisis Resource Table" class="responsive-iframe" src="https://camryn-e.github.io/QueersInCrisis/crisis-resources-datatable.html" aria-hidden="true"></iframe> <!-- backup-dt -->
+        <!-- <iframe title="DT CSV Test" class="responsive-iframe" src="file:///Users/Owner/Documents/Activities/oSTEM/2020-Hackathon/QueersInCrisis/docs/CRDT-csv.html" aria-hidden="true"></iframe> -->
+        <iframe title="DT CSV Test" class="responsive-iframe" src="https://camryn-e.github.io/QueersInCrisis/CRDT-csv.html" aria-hidden="true"></iframe>
     </div>
 </div>
 
 <p>
-Open the above table <a href="https://camryn-e.github.io/QueersInCrisis/crisis-resources-datatable.html" target="_blank">in a new tab</a>.
+Open the above table <a href="https://camryn-e.github.io/QueersInCrisis/CRDT-csv.html" target="_blank">in a new tab</a>.
 </p>
+
+<br>
 
 <h2>
 Published Google Sheet: A less elegant, but ready-made solution
 </h2>
 
 <center>
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQjnXdHfz66izc7znT2YhjL068ZsLpGxQvG0QJcaBjOD2-HWPBRfo-rY4pqLowRfVaBZI1bjT5ROvoo/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="400px"></iframe>
+<iframe title="Published Google Sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQdVhO7_V94syFdy-kaNdlX-B255tdMbzDWcyVjgoyFjV0xaG3__3plqIRdwjNBwAGjLl2t0K2c5jPh/pubhtml?gid=300334505&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="400px"></iframe>
 </center>
 
 <p>
@@ -554,6 +391,40 @@ Above this text is a Google Sheet that has been published to the web.
 More information on how to publish Google Sheets is available in Google's
 <a href="https://support.google.com/docs/answer/183965" target="_blank">Doc Editor Help</a>.
 Searching via <code>Cntrl+F</code> works, but there is no search bar capability.
+</p>
+
+<br>
+
+<h2>
+Data.Tables Solution From Public Google Sheet
+</h2>
+
+<div class="container">
+  <div class="embed-responsive embed-responsive-16by9">
+        <!-- <iframe title="DT Google Sheet Public" class="responsive-iframe" src="file:///Users/Owner/Documents/Activities/oSTEM/2020-Hackathon/QueersInCrisis/docs/CRDT-sheets.html" aria-hidden="true"></iframe> -->
+        <iframe title="DT Google Sheet Public" class="responsive-iframe" src="https://camryn-e.github.io/QueersInCrisis/CRDT-sheets.html" aria-hidden="true"></iframe>
+    </div>
+</div>
+
+<p>
+Open the above table <a href="https://camryn-e.github.io/QueersInCrisis/CRDT-sheets.html" target="_blank">in a new tab</a>.
+</p>
+
+<br>
+
+<h2>
+Data.Tables Solution Public Google Sheet with Font Awesome Replacements
+</h2>
+
+<div class="container">
+  <div class="embed-responsive embed-responsive-16by9">
+        <!-- <iframe title="DT Google Sheet Public with Font Awesome" class="responsive-iframe" src="file:///Users/Owner/Documents/Activities/oSTEM/2020-Hackathon/QueersInCrisis/docs/CRDT-sheets-FA.html" aria-hidden="true"></iframe> -->
+        <iframe title="DT Google Sheet Public with Font Awesome" class="responsive-iframe" src="https://camryn-e.github.io/QueersInCrisis/CRDT-sheets-FA.html" aria-hidden="true"></iframe>
+    </div>
+</div>
+
+<p>
+Open the above table <a href="https://camryn-e.github.io/QueersInCrisis/CRDT-sheets-FA.html" target="_blank">in a new tab</a>.
 </p>
 
 </main>

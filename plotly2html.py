@@ -6,7 +6,7 @@ Render the plotly figure as an HTML section using a CDN link for the required js
 
 import plotly.express as px
 
-CR_inset_path = "docs/crisis-resources-inset.html"
+CR_inset_path = "docs/CR-plotly-test.html"
 
 ## Test code -- this should be the actual figure!!
 fig = px.scatter(x=range(10), y=range(10))
