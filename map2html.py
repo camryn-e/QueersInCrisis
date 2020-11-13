@@ -24,7 +24,7 @@ fig = go.Figure(data=go.Scattergeo(
         ))
 
 fig.update_layout(
-        title = 'Most trafficked US airports<br>(Hover for airport names)',
+#        title = 'Most trafficked US airports<br>(Hover for airport names)',
         geo_scope='usa',
     )
 
